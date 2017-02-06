@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { createStyleSheet } from 'jss-theme-reactor';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+export const styleSheet = createStyleSheet('App', (theme) => ({
+  root: {
+    backgroundColor: 'red',
+    minWidth: 100,
+    minHeight: 200,
+  },
+}));
+
+const App = (props, context) => {
+  console.log(context);
+  const classes = context.styleManager.render(styleSheet);
+  return (
+    <div className={classes.root}>
+
+    </div>
+  )
 }
 
-export default App;
+App.contextTypes = {
+  styleManager: React.PropTypes.object,
+};
+
+export default App
