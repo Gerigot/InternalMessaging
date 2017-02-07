@@ -1,11 +1,12 @@
 import React from 'react'
 import { createStyleSheet } from 'jss-theme-reactor';
+import ToolBar from './Presentional/ToolBar';
+import InboxList from './Presentional/InboxList';
 
 export const styleSheet = createStyleSheet('App', (theme) => ({
-  root: {
-    backgroundColor: 'red',
-    minWidth: 100,
-    minHeight: 200,
+  sections: {
+    position: 'relative',
+    top: '40px',
   },
 }));
 
@@ -14,7 +15,10 @@ const App = (props, context) => {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
-
+      <ToolBar />
+      <div className={classes.sections}>
+        <InboxList />
+      </div>
     </div>
   )
 }

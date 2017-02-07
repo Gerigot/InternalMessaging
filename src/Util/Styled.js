@@ -4,6 +4,7 @@ import preset from 'jss-preset-default';
 import { createStyleManager } from 'jss-theme-reactor';
 
 const themeObj = {
+  primaryColor: '#6B9FC6',
   fontFamily: 'Roboto',
   fontSize: 12,
   color: 'red',
